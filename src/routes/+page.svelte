@@ -9,7 +9,7 @@
 </script>
 
 <h1>Når er EU-kontroll?</h1>
-<form on:submit={handleSubmit}>
-	<input type="text" bind:value={input} />
+<form on:submit={handleSubmit} method="post">
+	<input name="regnr" type="text" bind:value={input} />
 	<button>Check</button>
 </form>
