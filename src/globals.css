@@ -1,3 +1,10 @@
+@media (prefers-color-scheme: dark) {
+	html {
+		color-scheme: dark;
+	}
+}
 body {
 	font-family: sans-serif;
+	margin: 0;
+	padding: 0;
 }

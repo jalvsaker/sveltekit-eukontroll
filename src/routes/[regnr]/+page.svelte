@@ -14,7 +14,11 @@
 	}
 </script>
 
-<h1>{car.regnr}</h1>
+<svelte:head>
+	<title>{car.regnr} - Når er EU-kontroll?</title>
+</svelte:head>
+
+<h2>{car.regnr}</h2>
 <h3>{car.make} {car.model}</h3>
 {#if eu}
 	<div>Frist for EU-Kontroll: {eu}</div>
