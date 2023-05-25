@@ -26,5 +26,5 @@ export async function load({ params }) {
 		};
 	}
 
-	throw error(404, 'Not Found');
+	throw error(404, 'Finner ikke dette kjøretøyet');
 }
