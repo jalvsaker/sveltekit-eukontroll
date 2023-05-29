@@ -13,6 +13,9 @@
 		color: inherit;
 		text-decoration: inherit;
 	}
+	.header:hover{
+		text-decoration: underline;
+	}
 	footer {
 		bottom: 1em;
 		position: absolute;

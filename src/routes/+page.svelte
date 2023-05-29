@@ -10,7 +10,13 @@
 
 <form on:submit={handleSubmit} method="POST">
 	<label for="regnr" hidden>Regnr</label>
-	<input name="regnr" id="regnr" type="text" placeholder="Registreringsnummer " bind:value={input} />
+	<input
+		name="regnr"
+		id="regnr"
+		type="text"
+		placeholder="Registreringsnummer "
+		bind:value={input}
+	/>
 	<button>Check</button>
 </form>
 <svelte:head>
