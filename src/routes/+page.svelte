@@ -1,22 +1,10 @@
 <script>
-	import { goto } from '$app/navigation';
-	let input = '';
-
-	function handleSubmit(e) {
-		e.preventDefault();
-		goto(`/${input}`);
-	}
+	import { enhance } from '$app/forms';
 </script>
 
-<form on:submit={handleSubmit} method="POST">
+<form method="POST" use:enhance>
 	<label for="regnr" hidden>Regnr</label>
-	<input
-		name="regnr"
-		id="regnr"
-		type="text"
-		placeholder="Registreringsnummer "
-		bind:value={input}
-	/>
+	<input name="regnr" id="regnr" type="text" placeholder="Registreringsnummer" />
 	<button>Check</button>
 </form>
 <svelte:head>

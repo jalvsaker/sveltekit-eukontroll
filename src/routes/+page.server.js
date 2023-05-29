@@ -5,6 +5,6 @@ export const actions = {
 		const data = await request.formData();
 		const regnr = data.get('regnr');
 
-		throw redirect(302, `/${regnr}`);
+		throw redirect(303, `/${regnr}`);
 	}
 };
