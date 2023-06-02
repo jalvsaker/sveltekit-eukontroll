@@ -30,10 +30,12 @@
 		height: 100svh;
 		box-sizing: border-box;
 		background-color: white;
+		outline: 1px solid black;
 	}
 	@media (prefers-color-scheme: dark) {
 		.container {
 			background-color: #111;
+			outline: none;
 		}
 	}
 </style>
