@@ -13,7 +13,7 @@
 	</div>
 </form>
 
-<style module>
+<style>
 	.input {
 		display: flex;
 	}
