@@ -9,11 +9,14 @@
 </div>
 
 <style>
+	h1 {
+		margin-top: 0;
+	}
 	.header {
 		color: inherit;
 		text-decoration: inherit;
 	}
-	.header:hover{
+	.header:hover {
 		text-decoration: underline;
 	}
 	footer {
@@ -21,6 +24,11 @@
 		position: absolute;
 	}
 	.container {
-		padding: 0 1em;
+		padding: 1em;
+		margin: 0 auto;
+		max-width: max(60vw, 1000px);
+		height: 100svh;
+		outline: 1px solid;
+		box-sizing: border-box;
 	}
 </style>
