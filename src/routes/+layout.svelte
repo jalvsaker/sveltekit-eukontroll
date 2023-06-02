@@ -28,7 +28,12 @@
 		margin: 0 auto;
 		max-width: max(60vw, 1000px);
 		height: 100svh;
-		outline: 1px solid;
 		box-sizing: border-box;
+		background-color: white;
+	}
+	@media (prefers-color-scheme: dark) {
+		.container {
+			background-color: #111;
+		}
 	}
 </style>
