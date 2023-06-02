@@ -8,14 +8,26 @@ export async function load({ params }) {
 		{ headers: { 'SVV-Authorization': SVV_Authorization } }
 	);
 
-	if (res.ok && res.status !== 204) {
-		const car = await res.json();
+	if (res.status === 429) {
+		throw error(429);
+	}
 
-		const vehicle = car.kjoretoydataListe[0];
-		const euFrist = vehicle.periodiskKjoretoyKontroll?.kontrollfrist;
-		const regnr = vehicle.kjoretoyId.kjennemerke;
-		const make = vehicle.godkjenning.tekniskGodkjenning.tekniskeData.generelt.merke[0].merke;
-		const model = vehicle.godkjenning.tekniskGodkjenning.tekniskeData.generelt.handelsbetegnelse[0];
+	if (res.status === 403) {
+		throw error(403);
+	}
+
+	if (res.status === 400 || res.status === 204) {
+		throw error(404, 'Finner ikke dette kjøretøyet');
+	}
+
+	if (res.ok) {
+		const result = await res.json();
+		const car = result.kjoretoydataListe[0];
+
+		const euFrist = car.periodiskKjoretoyKontroll?.kontrollfrist;
+		const regnr = car.kjoretoyId.kjennemerke;
+		const make = car.godkjenning.tekniskGodkjenning.tekniskeData.generelt.merke[0].merke;
+		const model = car.godkjenning.tekniskGodkjenning.tekniskeData.generelt.handelsbetegnelse[0];
 		return {
 			car: {
 				euFrist,
@@ -26,5 +38,5 @@ export async function load({ params }) {
 		};
 	}
 
-	throw error(404, 'Finner ikke dette kjøretøyet');
+	throw error(500);
 }
