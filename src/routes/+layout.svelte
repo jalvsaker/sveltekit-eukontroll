@@ -3,7 +3,7 @@
 </script>
 
 <div class="container">
-	<h1><a href="/" class="header">Når er EU-kontroll?</a></h1>
+	<h1><a href="/" class="header">Når må bilen på EU-kontroll?</a></h1>
 	<slot />
 	<footer>Made by <a href="https://github.com/jalvsaker/">Jens</a></footer>
 </div>

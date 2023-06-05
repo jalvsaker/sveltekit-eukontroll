@@ -15,7 +15,7 @@
 </script>
 
 <svelte:head>
-	<title>{car.regnr} - Når er EU-kontroll?</title>
+	<title>{car.regnr} - Når må bilen på EU-kontroll?</title>
 </svelte:head>
 
 <h2>{car.regnr}</h2>

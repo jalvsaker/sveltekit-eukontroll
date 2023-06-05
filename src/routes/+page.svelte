@@ -3,7 +3,7 @@
 </script>
 
 <svelte:head>
-	<title>Når er EU-kontroll?</title>
+	<title>Når må bilen på EU-kontroll?</title>
 </svelte:head>
 <form method="POST" use:enhance>
 	<label for="regnr" hidden>Registreringsnummer</label>
