@@ -3,12 +3,17 @@
 </script>
 
 <div class="container">
-	<h1><a href="/" class="header">Når må bilen på EU&#8209;kontroll?</a></h1>
-	<slot />
+	<div class="center">
+		<h1><a href="/" class="header">Når må bilen på EU&#8209;kontroll?</a></h1>
+		<slot />
+	</div>
 	<footer>Made by <a href="https://github.com/jalvsaker/">Jens</a></footer>
 </div>
 
 <style>
+	.center {
+		text-align: center;
+	}
 	h1 {
 		margin-top: 0;
 	}
