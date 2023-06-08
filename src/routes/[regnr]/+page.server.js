@@ -24,10 +24,23 @@ export async function load({ params }) {
 		const result = await res.json();
 		const car = result.kjoretoydataListe[0];
 
-		const euFrist = car.periodiskKjoretoyKontroll?.kontrollfrist;
+		const euFristDate = new Date(car.periodiskKjoretoyKontroll?.kontrollfrist);
 		const regnr = car.kjoretoyId.kjennemerke;
 		const make = car.godkjenning.tekniskGodkjenning.tekniskeData.generelt.merke[0].merke;
-		const model = car.godkjenning.tekniskGodkjenning.tekniskeData.generelt.handelsbetegnelse[0];
+		let model = car.godkjenning.tekniskGodkjenning.tekniskeData.generelt.handelsbetegnelse[0];
+
+		const dateFormatter = Intl.DateTimeFormat('no-nb', { dateStyle: 'medium' });
+		let euFrist;
+		try {
+			euFrist = dateFormatter.format(euFristDate);
+		} catch {
+			euFrist = undefined;
+		}
+
+		if (model === "-") {
+			model = undefined;
+		}
+
 		return {
 			car: {
 				euFrist,

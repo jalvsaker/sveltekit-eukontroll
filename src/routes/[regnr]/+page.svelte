@@ -2,16 +2,6 @@
 	export let data;
 
 	const car = data.car;
-
-	const euFrist = new Date(car.euFrist);
-	const dateFormatter = Intl.DateTimeFormat('no-nb', { dateStyle: 'medium' });
-
-	let eu;
-	try {
-		eu = dateFormatter.format(euFrist);
-	} catch {
-		eu = undefined;
-	}
 </script>
 
 <svelte:head>
@@ -19,10 +9,15 @@
 </svelte:head>
 
 <h2>{car.regnr}</h2>
-<h3>{car.make} {car.model}</h3>
-{#if eu}
-	<div>Frist for EU-Kontroll: {eu}</div>
+<h3>
+	{car.make}
+	{#if car.model}
+		{car.model}
+	{/if}
+</h3>
+{#if car.euFrist}
+	<div>Frist for EU-Kontroll: {car.euFrist}</div>
 {:else}
 	<div>Ingen EU-kontroll</div>
 {/if}
-<!-- <pre>{JSON.stringify(data.car, null, 2)}</pre> -->
+<!-- <pre style="text-align: left;">{JSON.stringify(data.car, null, 2)}</pre> -->
