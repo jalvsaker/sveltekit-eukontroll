@@ -1,5 +1,10 @@
 import { redirect } from '@sveltejs/kit';
 
+/** @type {import('@sveltejs/adapter-vercel').Config} */
+export const config = {
+	runtime: 'edge'
+};
+
 export const actions = {
 	default: async ({ request }) => {
 		const data = await request.formData();

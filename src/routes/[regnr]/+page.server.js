@@ -3,8 +3,8 @@ import { error } from '@sveltejs/kit';
 
 /** @type {import('@sveltejs/adapter-vercel').Config} */
 export const config = {
-	isr: 60
-}
+	isr: 3600
+};
 
 export async function load({ params }) {
 	const res = await fetch(
@@ -42,7 +42,7 @@ export async function load({ params }) {
 			euFrist = undefined;
 		}
 
-		if (model === "-") {
+		if (model === '-') {
 			model = undefined;
 		}
 
