@@ -14,11 +14,11 @@ export async function load({ params }) {
 	);
 
 	if (res.status === 429) {
-		throw error(429);
+		throw error(500, 'Feil: Tjenesten har brukt opp kvoten sin hos Statens Vegvesen');
 	}
 
 	if (res.status === 403) {
-		throw error(403);
+		throw error(500, 'Feil: Tjenesten har ikke tilgang til data fra Statens Vegvesen');
 	}
 
 	if (res.status === 400 || res.status === 204) {
@@ -56,5 +56,5 @@ export async function load({ params }) {
 		};
 	}
 
-	throw error(500);
+	throw error(500, `Ukjent feil: ${res.status} ${res.statusText}`);
 }
