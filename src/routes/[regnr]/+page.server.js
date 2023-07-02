@@ -1,6 +1,11 @@
 import { SVV_Authorization } from '$env/static/private';
 import { error } from '@sveltejs/kit';
 
+/** @type {import('@sveltejs/adapter-vercel').Config} */
+export const config = {
+	isr: 60
+}
+
 export async function load({ params }) {
 	const res = await fetch(
 		'https://www.vegvesen.no/ws/no/vegvesen/kjoretoy/felles/datautlevering/enkeltoppslag/kjoretoydata?kjennemerke=' +
