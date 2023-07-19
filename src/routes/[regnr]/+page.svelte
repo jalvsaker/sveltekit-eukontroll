@@ -1,4 +1,6 @@
 <script>
+	import InputForm from '../../components/InputForm.svelte';
+
 	export let data;
 
 	const car = data.car;
@@ -20,4 +22,6 @@
 {:else}
 	<div>Ingen EU-kontroll</div>
 {/if}
+<h5>Nytt søk:</h5>
+<InputForm />
 <!-- <pre style="text-align: left;">{JSON.stringify(data.car, null, 2)}</pre> -->
