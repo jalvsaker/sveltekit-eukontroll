@@ -1,12 +1,7 @@
 import { SVV_Authorization } from '$env/static/private';
 import { error } from '@sveltejs/kit';
 
-/** @type {import('@sveltejs/adapter-vercel').Config} */
-export const config = {
-	isr: 3600
-};
-
-export async function load({ params }) {
+export async function load({ params, setHeaders }) {
 	const res = await fetch(
 		'https://www.vegvesen.no/ws/no/vegvesen/kjoretoy/felles/datautlevering/enkeltoppslag/kjoretoydata?kjennemerke=' +
 			params.regnr,
@@ -45,6 +40,8 @@ export async function load({ params }) {
 		if (model === '-') {
 			model = undefined;
 		}
+
+		setHeaders({ 'Cache-Control': 's-maxage=86400' });
 
 		return {
 			car: {
