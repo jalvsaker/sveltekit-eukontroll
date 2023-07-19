@@ -3,6 +3,7 @@
 	import { goto } from '$app/navigation';
 
 	let regnr = '';
+	$: regnr = regnr.toUpperCase();
 
 	function handleSubmit() {
 		goto(regnr);

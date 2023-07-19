@@ -1,10 +1,16 @@
 import { SVV_Authorization } from '$env/static/private';
-import { error } from '@sveltejs/kit';
+import { error, redirect } from '@sveltejs/kit';
 
 export async function load({ params, setHeaders }) {
+	const regnr = params.regnr;
+
+	if (regnr !== regnr.toUpperCase()) {
+		throw redirect(303, regnr.toUpperCase());
+	}
+
 	const res = await fetch(
 		'https://www.vegvesen.no/ws/no/vegvesen/kjoretoy/felles/datautlevering/enkeltoppslag/kjoretoydata?kjennemerke=' +
-			params.regnr,
+			regnr,
 		{ headers: { 'SVV-Authorization': SVV_Authorization } }
 	);
 
