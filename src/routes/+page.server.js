@@ -10,5 +10,5 @@ export const actions = {
 };
 
 export function load({setHeaders}){
-	setHeaders({ 'Cache-Control': 's-maxage=31536000, immutable' });
+	setHeaders({ 'Cache-Control': 's-maxage=31536000' });
 }
