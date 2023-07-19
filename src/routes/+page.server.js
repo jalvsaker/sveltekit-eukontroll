@@ -8,3 +8,7 @@ export const actions = {
 		throw redirect(303, `/${regnr}`);
 	}
 };
+
+export function load({setHeaders}){
+	setHeaders({ 'Cache-Control': 's-maxage=31536000, immutable' });
+}
