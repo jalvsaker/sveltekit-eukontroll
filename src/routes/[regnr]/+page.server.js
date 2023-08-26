@@ -47,7 +47,7 @@ export async function load({ params, setHeaders }) {
 			model = undefined;
 		}
 
-		setHeaders({ 'Cache-Control': 's-maxage=86400' });
+		// setHeaders({ 'Cache-Control': 's-maxage=86400' });
 
 		return {
 			car: {
