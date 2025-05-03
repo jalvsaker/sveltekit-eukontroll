@@ -14,6 +14,9 @@ export async function load({ params, setHeaders }) {
 		{ headers: { 'SVV-Authorization': SVV_Authorization } }
 	);
 
+	console.log(`${res.status} ${res.statusText}`);
+	console.log(await res.json());
+
 	if (res.status === 429) {
 		throw error(500, 'Feil: Tjenesten har brukt opp kvoten sin hos Statens Vegvesen');
 	}
